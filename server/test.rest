@@ -1,0 +1,65 @@
+
+### Register a new user
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test Student",
+  "email": "teststudent1@gmail.com",
+  "password": "StudentPass123!"
+}
+
+
+
+### Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "teststudent1@gmail.com",
+  "password": "StudentPass123!"
+}
+
+
+
+### Check authenticated user
+GET http://localhost:5000/api/auth/me
+Cookie: token=YOUR_JWT_TOKEN_HERE
+
+
+### Create a new student
+POST http://localhost:5000/api/students
+Content-Type: application/json
+
+{
+  "firstName": "Ada",
+  "lastName": "Okafor",
+  "email": "ada.okafor@example.com",
+  "phone": "08012345678",
+  "course": "Computer Science",
+  "status": "Active"
+}
+
+###
+GET http://localhost:5000/api/students
+Cookie: token=YOUR_JWT_TOKEN_HERE
+
+### Get a student by ID
+GET http://localhost:5000/api/students/cmv93ukev0000t4obs1jvuvqo   
+
+
+### Update a student by ID
+PATCH  http://localhost:5000/api/students/cmv93ukev0000t4obs1jvuvqo
+Content-Type: application/json
+
+{
+  "firstName": "Ada",
+  "lastName": "Igwe",
+  "email": "ada.okafor@example.com",
+  "phone": "08012345678",
+  "course": "Computer Science",
+  "status": "Inactive"
+}
+
+### Delete a student by ID
+DELETE http://localhost:5000/api/students/cmv93ukev0000t4obs1jvuvqo

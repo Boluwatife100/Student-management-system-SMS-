@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: student-management-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: student_admin
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: student_management
+    ports:
+      - "5432:5432"
+    volumes:
+      - student_data:/var/lib/postgresql/data
+volumes:
+  student_data:
